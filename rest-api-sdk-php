@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>paypal/rest-api-sdk-php - Packagist</title>
+        <meta name="description" content="PayPal&#039;s PHP SDK for REST APIs" />
+        <meta name="author" content="Jordi Boggiano" />
+            <link rel="canonical" href="https://packagist.org/packages/paypal/rest-api-sdk-php" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="/favicon.ico?v=1638278346" />
+
+        <link rel="stylesheet" href="/libs/bootstrap-3.3.5/css/bootstrap.min.css?v=1638278346" />
+        <link rel="stylesheet" href="/libs/bootstrap-3.3.5/css/bootstrap-theme.min.css?v=1638278346" />
+        <link rel="stylesheet" href="/build/app.css?v=1638278346" />
+        <link rel="stylesheet" href="/css/humane/jackedup.css?v=1638278346" />
+        
+            <link rel="alternate" type="application/rss+xml" title="New Releases - paypal/rest-api-sdk-php" href="https://packagist.org/feeds/package.paypal/rest-api-sdk-php.rss" />
+    <link rel="alternate" type="application/rss+xml" title="New Releases - paypal" href="https://packagist.org/feeds/vendor.paypal.rss" />
+            <link rel="alternate" type="application/rss+xml" title="Newly Submitted Packages - Packagist" href="https://packagist.org/feeds/packages.rss" />
+        <link rel="alternate" type="application/rss+xml" title="New Releases - Packagist" href="https://packagist.org/feeds/releases.rss" />
+        
+
+        <link rel="search" type="application/opensearchdescription+xml" href="/search.osd?v=1638278346" title="Packagist" />
+
+        
+            <link rel="stylesheet" href="/css/github/markdown.css?v=1638278346">
+        </head>
+
+    <body>
+    <section class="wrap">
+        <header class="navbar-wrapper navbar-fixed-top">
+            <nav class="container">
+                <div class="navbar" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1 class="navbar-brand"><a href="/">Packagist</a> <em class="hidden-sm hidden-xs">The PHP Package Repository</em></h1>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/explore/">Browse</a>
+                            </li>
+                            <li>
+                                <a href="/packages/submit">Submit</a>
+                            </li>                            <li>
+                                <a href="/register/">Create account</a>
+                            </li>
+                            <li class="nav-user">
+                                <section class="nav-user-signin">
+                                    <a href="/login/">Sign in</a>
+
+                                    <section class="signin-box">
+                                        <form action="/login/" method="POST" id="nav_login">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" id="_username" name="_username" placeholder="Username / Email">
+                                                <span class="input-group-addon"><span class="icon-user"></span></span>
+                                            </div>
+                                            <div class="input-group">
+                                                <input class="form-control" type="password" id="_password" name="_password" placeholder="Password">
+                                                <span class="input-group-addon"><span class="icon-lock"></span></span>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <label for="_remember_me">
+                                                    <input type="checkbox" id="_remember_me" name="_remember_me" value="on" checked="checked" /> Remember me
+                                                </label>
+                                            </div>
+                                            <div class="signin-box-buttons">
+                                                <a href="/login/github" class="pull-right btn btn-primary btn-github"><span class="icon-github"></span>Use Github</a>
+                                                <button type="submit" class="btn btn-success" id="_submit_mini" name="_submit">Log in</button>
+                                            </div>
+                                        </form>
+
+                                        <div class="signin-box-register">
+                                            <a href="/register/">No account yet? Create one now!</a>
+                                        </div>
+                                    </section>
+                                </section>
+                            </li>                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="wrapper wrapper-search">
+    <div class="container ">
+        <form name="search_query" method="get" action="/search/" id="search-form" autocomplete="off">
+    <div class="sortable row">
+        <div class="col-xs-12 js-search-field-wrapper col-md-9">
+            <input type="search" id="search_query_query" name="search_query[query]" required="required" autocomplete="off" placeholder="Search packages..." tabindex="1" class=" form-control" value="" />
+        </div>
+    </div>
+</form>
+    </div>
+</section>
+
+
+                
+        
+        <section class="wrapper">
+            <section class="container content" role="main">
+                                    <div id="search-container" class="hidden">
+                        <div class="row">
+                            <div class="search-list col-md-9"></div>
+
+                            <div class="search-facets col-md-3">
+                                <div class="search-facets-active-filters"></div>
+                                <div class="search-facets-type"></div>
+                                <div class="search-facets-tags"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div id="powered-by">
+                                    Search by <a href="https://www.algolia.com/"><img src="/img/algolia-logo-light.svg?v=1638278346"></a>
+                                </div>
+                                <div id="pagination-container">
+                                    <div class="pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+        <div class="col-xs-12 package">
+            <div class="package-header">
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2 class="title">
+                                                        <a href="/packages/paypal/">paypal<span class="hidden"> </span>/</a><span class="hidden"> </span>rest-api-sdk-php
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="requireme"><i class="glyphicon glyphicon-save"></i> <input type="text" readonly="readonly" value="composer require paypal/rest-api-sdk-php" /></p>
+
+                    
+                    
+                                            <div class="alert alert-danger">
+                            This package is <strong>abandoned</strong> and no longer maintained.
+                                                            No replacement package was suggested.
+                                                                                    </div>
+                                        
+                    
+                    <p class="description">PayPal&#039;s PHP SDK for REST APIs</p>
+
+                                    </div>
+
+                <div class="col-md-offset-1 col-md-3">
+                    <div class="row package-aside">
+                        <div class="details col-xs-12 col-sm-6 col-md-12">
+                            <h5>Maintainers</h5>
+                            <p class="maintainers">
+                                <a href="/users/paypal/"><img width="48" height="48" title="paypal" src="https://www.gravatar.com/avatar/1e1c51d7c9661df326df3ee1e18a4f29?s=48&amp;d=identicon" srcset="https://www.gravatar.com/avatar/1e1c51d7c9661df326df3ee1e18a4f29?s=96&amp;d=identicon 2x"></a>
+                                                                                            </p>
+
+                            <h5>Details</h5>
+                                                        <p class="canonical">
+                                <a href="https://github.com/paypal/PayPal-PHP-SDK" title="Canonical Repository URL">github.com/paypal/PayPal-PHP-SDK</a>
+                            </p>
+
+                                                            <p><a rel="nofollow noopener external noindex ugc" href="http://paypal.github.io/PayPal-PHP-SDK/">Homepage</a></p>
+                                                                                        <p><a rel="nofollow noopener external noindex ugc" href="https://github.com/paypal/PayPal-PHP-SDK/tree/master">Source</a></p>
+                                                                                        <p><a rel="nofollow noopener external noindex ugc" href="https://github.com/paypal/PayPal-PHP-SDK/issues">Issues</a></p>
+                                                                                                                                                                                                </div>
+
+                        
+                        <div class="facts col-xs-12 col-sm-6 col-md-12">
+                            <p>
+                                <span>
+                                    <a href="/packages/paypal/rest-api-sdk-php/stats" rel="nofollow">Installs</a>:
+                                </span>
+                                11&#8201;213&#8201;717                            </p>
+                                                            <p>
+                                    <span>
+                                        <a href="/packages/paypal/rest-api-sdk-php/dependents?order_by=downloads" rel="nofollow">Dependents</a>:
+                                    </span>
+                                    196
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a href="/packages/paypal/rest-api-sdk-php/suggesters" rel="nofollow">Suggesters</a>:
+                                    </span>
+                                    4
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a href="/packages/paypal/rest-api-sdk-php/advisories" rel="nofollow">Security</a>:
+                                    </span>
+                                    0
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a href="https://github.com/paypal/PayPal-PHP-SDK/stargazers">Stars</a>:
+                                    </span>
+                                    2&#8201;071
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a href="https://github.com/paypal/PayPal-PHP-SDK/watchers">Watchers</a>:
+                                    </span> 216
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a href="https://github.com/paypal/PayPal-PHP-SDK/network">Forks</a>:
+                                    </span>
+                                    1&#8201;125
+                                </p>
+                                                                                        <p>
+                                    <span>
+                                        <a rel="nofollow noopener external noindex ugc" href="https://github.com/paypal/PayPal-PHP-SDK/issues">Open Issues</a>:
+                                    </span>
+                                    55
+                                </p>
+                                                                                                            </div>
+                    </div>
+                </div>
+            </div>
+
+            
+                            <div class="row versions-section">
+                    <div class="version-details col-md-9">
+                                                    <div class="title">
+    <span class="version-number">1.14.0</span>
+
+    <span class="release-date">2019-01-04 20:04 UTC</span>
+</div>
+
+<div class="clearfix package-links">
+            <div class="row">
+                            <div class="clearfix visible-sm-block"></div>                <div class="clearfix visible-md-block visible-lg-block"></div>                <div class="requires col-sm-6 col-md-4 ">
+                    <p class="link-type">Requires</p>
+                                            <ul><li>php: &gt;=5.3.0</li><li><a href="/providers/ext-curl">ext-curl</a>: *</li><li>ext-json: *</li><li><a href="/packages/psr/log">psr/log</a>: ^1.0.0</li></ul>
+                                    </div>
+                                                            <div class="devRequires col-sm-6 col-md-4 ">
+                    <p class="link-type">Requires (Dev)</p>
+                                            <ul><li><a href="/packages/phpunit/phpunit">phpunit/phpunit</a>: ^4.8.35</li></ul>
+                                    </div>
+                            <div class="clearfix visible-sm-block"></div>                                <div class="suggests col-sm-6 col-md-4 hidden-xs">
+                    <p class="link-type">Suggests</p>
+                                            <p class="no-links">None</p>
+                                    </div>
+                                            <div class="clearfix visible-md-block visible-lg-block"></div>                <div class="provides col-sm-6 col-md-4 hidden-xs">
+                    <p class="link-type">Provides</p>
+                                            <p class="no-links">None</p>
+                                    </div>
+                            <div class="clearfix visible-sm-block"></div>                                <div class="conflicts col-sm-6 col-md-4 hidden-xs">
+                    <p class="link-type">Conflicts</p>
+                                            <p class="no-links">None</p>
+                                    </div>
+                                                            <div class="replaces col-sm-6 col-md-4 hidden-xs">
+                    <p class="link-type">Replaces</p>
+                                            <p class="no-links">None</p>
+                                    </div>
+                    </div>
+    </div>
+
+<div class="metadata">
+    <p class="license"><i class="glyphicon glyphicon-copyright-mark" title="License"></i> Apache-2.0 <span class="source-reference"><i class="glyphicon glyphicon-bookmark" title="Source Reference"></i> 72e2f2466975bf128a31e02b15110180f059fc04</span></p>
+
+            <i class="glyphicon glyphicon-user" title="Authors"></i>
+        <ul class="authors">
+                            <li><a rel="nofollow noopener external noindex ugc" href="https://github.com/paypal/rest-api-sdk-php/contributors">PayPal</a></li>
+                    </ul>
+    
+            <p class="tags">
+            <i class="glyphicon glyphicon-tag" title="Tags"></i>
+            <a href="https://packagist.org/search?tags=rest">rest</a><a href="https://packagist.org/search?tags=payments">payments</a><a href="https://packagist.org/search?tags=sdk">sdk</a><a href="https://packagist.org/search?tags=paypal">paypal</a></p>
+    </div>
+                                            </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="package-aside versions-wrapper">
+    <ul class="versions">
+                                <li class="details-toggler version" data-version-id="dev-master" data-load-more="/versions/4745279.json">
+                <a href="#dev-master" class="version-number">dev-master</a>
+
+                
+                            </li>
+                                <li class="details-toggler version open" data-version-id="1.14.0" data-load-more="/versions/2670179.json">
+                <a href="#1.14.0" class="version-number">1.14.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.13.0" data-load-more="/versions/1723888.json">
+                <a href="#1.13.0" class="version-number">1.13.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.12.0" data-load-more="/versions/1493914.json">
+                <a href="#1.12.0" class="version-number">1.12.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.11.0" data-load-more="/versions/1128309.json">
+                <a href="#1.11.0" class="version-number">1.11.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.10.0" data-load-more="/versions/1056827.json">
+                <a href="#1.10.0" class="version-number">1.10.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.9.0" data-load-more="/versions/1047888.json">
+                <a href="#1.9.0" class="version-number">1.9.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.8.0" data-load-more="/versions/1015070.json">
+                <a href="#1.8.0" class="version-number">1.8.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.7.4" data-load-more="/versions/904330.json">
+                <a href="#1.7.4" class="version-number">1.7.4</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.7.3" data-load-more="/versions/871996.json">
+                <a href="#1.7.3" class="version-number">1.7.3</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="1.7.2" data-load-more="/versions/819990.json">
+                <a href="#1.7.2" class="version-number">1.7.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.7.1" data-load-more="/versions/788746.json">
+                <a href="#v1.7.1" class="version-number">v1.7.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.7.0" data-load-more="/versions/783584.json">
+                <a href="#v1.7.0" class="version-number">v1.7.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.6.4" data-load-more="/versions/665729.json">
+                <a href="#v1.6.4" class="version-number">v1.6.4</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.6.3" data-load-more="/versions/613226.json">
+                <a href="#v1.6.3" class="version-number">v1.6.3</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.6.2" data-load-more="/versions/587942.json">
+                <a href="#v1.6.2" class="version-number">v1.6.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.6.1" data-load-more="/versions/567225.json">
+                <a href="#v1.6.1" class="version-number">v1.6.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.6.0" data-load-more="/versions/545579.json">
+                <a href="#v1.6.0" class="version-number">v1.6.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.5.1" data-load-more="/versions/493993.json">
+                <a href="#v1.5.1" class="version-number">v1.5.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.5.0" data-load-more="/versions/444302.json">
+                <a href="#v1.5.0" class="version-number">v1.5.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.4.0" data-load-more="/versions/427803.json">
+                <a href="#v1.4.0" class="version-number">v1.4.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.3.2" data-load-more="/versions/360620.json">
+                <a href="#v1.3.2" class="version-number">v1.3.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.3.1" data-load-more="/versions/348030.json">
+                <a href="#v1.3.1" class="version-number">v1.3.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.3.0" data-load-more="/versions/343750.json">
+                <a href="#v1.3.0" class="version-number">v1.3.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.2.1" data-load-more="/versions/339271.json">
+                <a href="#v1.2.1" class="version-number">v1.2.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.2.0" data-load-more="/versions/322316.json">
+                <a href="#v1.2.0" class="version-number">v1.2.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.1.1" data-load-more="/versions/317232.json">
+                <a href="#v1.1.1" class="version-number">v1.1.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.1.0" data-load-more="/versions/314665.json">
+                <a href="#v1.1.0" class="version-number">v1.1.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v1.0.0" data-load-more="/versions/303145.json">
+                <a href="#v1.0.0" class="version-number">v1.0.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.16.1" data-load-more="/versions/293365.json">
+                <a href="#v0.16.1" class="version-number">v0.16.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.16.0" data-load-more="/versions/289317.json">
+                <a href="#v0.16.0" class="version-number">v0.16.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.15.1" data-load-more="/versions/281134.json">
+                <a href="#v0.15.1" class="version-number">v0.15.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.15.0" data-load-more="/versions/278041.json">
+                <a href="#v0.15.0" class="version-number">v0.15.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.14.2" data-load-more="/versions/269294.json">
+                <a href="#v0.14.2" class="version-number">v0.14.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.14.1" data-load-more="/versions/269117.json">
+                <a href="#v0.14.1" class="version-number">v0.14.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.14.0" data-load-more="/versions/262188.json">
+                <a href="#v0.14.0" class="version-number">v0.14.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.13.2" data-load-more="/versions/254054.json">
+                <a href="#v0.13.2" class="version-number">v0.13.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.13.1" data-load-more="/versions/251296.json">
+                <a href="#v0.13.1" class="version-number">v0.13.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.13.0" data-load-more="/versions/250014.json">
+                <a href="#v0.13.0" class="version-number">v0.13.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.12.0" data-load-more="/versions/248471.json">
+                <a href="#v0.12.0" class="version-number">v0.12.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.11.1" data-load-more="/versions/246213.json">
+                <a href="#v0.11.1" class="version-number">v0.11.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.11.0" data-load-more="/versions/241529.json">
+                <a href="#v0.11.0" class="version-number">v0.11.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.10.0" data-load-more="/versions/232017.json">
+                <a href="#v0.10.0" class="version-number">v0.10.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.9.0" data-load-more="/versions/223873.json">
+                <a href="#v0.9.0" class="version-number">v0.9.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.6" data-load-more="/versions/216510.json">
+                <a href="#v0.8.6" class="version-number">v0.8.6</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.5" data-load-more="/versions/212430.json">
+                <a href="#v0.8.5" class="version-number">v0.8.5</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.4" data-load-more="/versions/205554.json">
+                <a href="#v0.8.4" class="version-number">v0.8.4</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.3" data-load-more="/versions/171614.json">
+                <a href="#v0.8.3" class="version-number">v0.8.3</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.2" data-load-more="/versions/168207.json">
+                <a href="#v0.8.2" class="version-number">v0.8.2</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.1" data-load-more="/versions/166860.json">
+                <a href="#v0.8.1" class="version-number">v0.8.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.8.0" data-load-more="/versions/165833.json">
+                <a href="#v0.8.0" class="version-number">v0.8.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.7.1" data-load-more="/versions/73080.json">
+                <a href="#v0.7.1" class="version-number">v0.7.1</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.7.0" data-load-more="/versions/58341.json">
+                <a href="#v0.7.0" class="version-number">v0.7.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="v0.6.0" data-load-more="/versions/51018.json">
+                <a href="#v0.6.0" class="version-number">v0.6.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="V0.5.0" data-load-more="/versions/41331.json">
+                <a href="#V0.5.0" class="version-number">V0.5.0</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="dev-dev-2.0-beta" data-load-more="/versions/2105796.json">
+                <a href="#dev-dev-2.0-beta" class="version-number">dev-dev-2.0-beta</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="dev-2.0-beta" data-load-more="/versions/1896725.json">
+                <a href="#dev-2.0-beta" class="version-number">dev-2.0-beta</a>
+
+                
+                            </li>
+                                <li class="details-toggler version" data-version-id="dev-update-refresh-token-with-subject" data-load-more="/versions/1697962.json">
+                <a href="#dev-update-refresh-token-with-subject" class="version-number">dev-update-refresh-token-with-subject</a>
+
+                
+                            </li>
+                                <li class="details-toggler version last" data-version-id="dev-plan" data-load-more="/versions/1683295.json">
+                <a href="#dev-plan" class="version-number">dev-plan</a>
+
+                
+                            </li>
+            </ul>
+    <div class="hidden versions-expander">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+    </div>
+</div>
+
+    <div class="last-update">
+                    <p class="auto-update-danger">This package is <strong>not</strong> <a href="/about#how-to-update-packages">auto-updated</a>.</p>
+                <p>Last update: 2021-05-26 00:48:30 UTC </p>
+            </div>
+                    </div>
+                </div>
+            
+                            <hr class="clearfix">
+                <div class="readme markdown-body">
+                    <h1>README</h1>
+                    
+<p>This SDK is deprecated. You can continue to use it, but no new features or support requests will be accepted.
+For alternatives, please visit <a href="https://developer.paypal.com/docs/api/rest-sdks/" rel="nofollow noindex noopener external ugc">the current SDK homepage on the PayPal Developer Portal</a></p>
+<h2><a id="user-content-rest-api-sdk-for-php" class="anchor" href="#user-content-rest-api-sdk-for-php" rel="nofollow noindex noopener external ugc"></a>REST API SDK for PHP</h2>
+<p><a target="_blank" href="https://raw.githubusercontent.com/wiki/paypal/PayPal-PHP-SDK/images/homepage.jpg" rel="nofollow noindex noopener external ugc"><img src="https://rawcdn.githack.com/wiki/paypal/PayPal-PHP-SDK/images/homepage.jpg" alt="Home Image"></a></p>
+<p><a href="https://travis-ci.org/paypal/PayPal-PHP-SDK" rel="nofollow noindex noopener external ugc"><img src="https://camo.githubusercontent.com/258493dab31055cdfa9395324616b1add7835cf9b37fa67151f0d0b15c9323c9/68747470733a2f2f7472617669732d63692e6f72672f70617970616c2f50617950616c2d5048502d53444b2e7376673f6272616e63683d6d6173746572" alt="Build Status"></a>
+<a href="https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master" rel="nofollow noindex noopener external ugc"><img src="https://camo.githubusercontent.com/7d535e423c54db7395a8dcdba10e336b97a75cc4254c529ec692ded718f5d700/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f70617970616c2f50617950616c2d5048502d53444b2f62616467652e7376673f6272616e63683d6d6173746572" alt="Coverage Status"></a></p>
+<p><strong>Welcome to PayPal PHP SDK</strong>. This repository contains PayPal's PHP SDK and samples for REST API.</p>
+<h2><a id="user-content-direct-credit-card-support" class="anchor" href="#user-content-direct-credit-card-support" rel="nofollow noindex noopener external ugc"></a>Direct Credit Card Support</h2>
+<blockquote>
+<p><strong>Important: The PayPal REST API no longer supports new direct credit card integrations.</strong>  Please instead consider <a href="https://www.braintreepayments.com/products/braintree-direct" rel="nofollow noindex noopener external ugc">Braintree Direct</a>; which is, PayPal's preferred integration solution for accepting direct credit card payments in your mobile app or website. Braintree, a PayPal service, is the easiest way to accept credit cards, PayPal, and many other payment methods.</p>
+</blockquote>
+<h2><a id="user-content-please-note" class="anchor" href="#user-content-please-note" rel="nofollow noindex noopener external ugc"></a>Please Note</h2>
+<blockquote>
+<p><strong>The Payment Card Industry (PCI) Council has <a href="https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls" rel="nofollow noindex noopener external ugc">mandated</a> that early versions of TLS be retired from service.  All organizations that handle credit card information are required to comply with this standard. As part of this obligation, PayPal is updating its services to require TLS 1.2 for all HTTPS connections. At this time, PayPal will also require HTTP/1.1 for all connections. <a href="https://github.com/paypal/tls-update" rel="nofollow noindex noopener external ugc">Click here</a> for more information</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Connections to the sandbox environment use only TLS 1.2.</strong></p>
+</blockquote>
+<h2><a id="user-content-sdk-documentation" class="anchor" href="#user-content-sdk-documentation" rel="nofollow noindex noopener external ugc"></a>SDK Documentation</h2>
+<p><a href="http://paypal.github.io/PayPal-PHP-SDK/" rel="nofollow noindex noopener external ugc">Our PayPal-PHP-SDK Page</a> includes all the documentation related to PHP SDK. Everything from SDK Wiki, to Sample Codes, to Releases. Here are few quick links to get you there faster.</p>
+<ul>
+<li><a href="https://paypal.github.io/PayPal-PHP-SDK/" rel="nofollow noindex noopener external ugc">PayPal-PHP-SDK Home Page</a></li>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/wiki" rel="nofollow noindex noopener external ugc">Wiki</a></li>
+<li><a href="https://paypal.github.io/PayPal-PHP-SDK/sample/" rel="nofollow noindex noopener external ugc">Samples</a></li>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/wiki/Installation" rel="nofollow noindex noopener external ugc">Installation</a></li>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/wiki/Making-First-Call" rel="nofollow noindex noopener external ugc">Make your First SDK Call</a></li>
+<li><a href="https://developer.paypal.com/docs/" rel="nofollow noindex noopener external ugc">PayPal Developer Docs</a></li>
+</ul>
+<h2><a id="user-content-latest-updates" class="anchor" href="#user-content-latest-updates" rel="nofollow noindex noopener external ugc"></a>Latest Updates</h2>
+<ul>
+<li>SDK now allows injecting your logger implementation. Please read <a href="https://github.com/paypal/PayPal-PHP-SDK/wiki/Custom-Logger" rel="nofollow noindex noopener external ugc">documentation</a> for more details.</li>
+<li>If you are running into SSL Connect Error talking to sandbox or live, please update your SDK to latest version or, follow instructions as shown <a href="https://github.com/paypal/PayPal-PHP-SDK/issues/474" rel="nofollow noindex noopener external ugc">here</a></li>
+<li>Checkout the latest 1.0.0 release. Here are all the <a href="https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0" rel="nofollow noindex noopener external ugc">breaking Changes in v1.0.0</a> if you are migrating from older versions.</li>
+<li>Now we have a <a href="https://paypal.github.io/PayPal-PHP-SDK/" rel="nofollow noindex noopener external ugc">Github Page</a>, that helps you find all helpful resources building applications using PayPal-PHP-SDK.</li>
+</ul>
+<h2><a id="user-content-paypal-checkout-v2" class="anchor" href="#user-content-paypal-checkout-v2" rel="nofollow noindex noopener external ugc"></a>PayPal Checkout v2</h2>
+<p>Please note that if you are integrating with PayPal Checkout, this SDK and corresponding API <a href="https://developer.paypal.com/docs/api/payments/v1/" rel="nofollow noindex noopener external ugc">v1/payments</a> are in the process of being deprecated.</p>
+<p>We recommend that you integrate with API <a href="https://developer.paypal.com/docs/api/orders/v2/" rel="nofollow noindex noopener external ugc">v2/checkout/orders</a> and <a href="https://developer.paypal.com/docs/api/payments/v2/" rel="nofollow noindex noopener external ugc">v2/payments</a>. Please refer to the <a href="https://github.com/paypal/Checkout-PHP-SDK" rel="nofollow noindex noopener external ugc">Checkout PHP SDK</a> to continue with the integration.</p>
+<h2><a id="user-content-20-release-candidate" class="anchor" href="#user-content-20-release-candidate" rel="nofollow noindex noopener external ugc"></a>2.0 Release Candidate!</h2>
+<p>We're releasing a <a href="https://github.com/paypal/PayPal-php-SDK/tree/2.0-beta" rel="nofollow noindex noopener external ugc">brand new version of our SDK!</a> 2.0 is currently at release candidate status, and represents a full refactor, with the goal of making all of our APIs extremely easy to use. 2.0 includes all of the existing APIs (except payouts), and includes the new Orders API (Disputes and Marketplace coming soon). Check out the <a href="https://github.com/paypal/PayPal-php-SDK/tree/2.0-beta/docs" rel="nofollow noindex noopener external ugc">FAQ and migration guide</a>, and let us know if you have any suggestions or issues!</p>
+<h2><a id="user-content-prerequisites" class="anchor" href="#user-content-prerequisites" rel="nofollow noindex noopener external ugc"></a>Prerequisites</h2>
+<ul>
+<li>PHP 5.3 or above</li>
+<li><a href="https://secure.php.net/manual/en/book.curl.php" rel="nofollow noindex noopener external ugc">curl</a>, <a href="https://secure.php.net/manual/en/book.json.php" rel="nofollow noindex noopener external ugc">json</a> &amp; <a href="https://secure.php.net/manual/en/book.openssl.php" rel="nofollow noindex noopener external ugc">openssl</a> extensions must be enabled</li>
+</ul>
+<h2><a id="user-content-license" class="anchor" href="#user-content-license" rel="nofollow noindex noopener external ugc"></a>License</h2>
+<p>Read <a href="https://github.com/paypal/PayPal-PHP-SDK/blob/HEAD/LICENSE" rel="nofollow noindex noopener external ugc">License</a> for more licensing information.</p>
+<h2><a id="user-content-contributing" class="anchor" href="#user-content-contributing" rel="nofollow noindex noopener external ugc"></a>Contributing</h2>
+<p>Read <a href="https://github.com/paypal/PayPal-PHP-SDK/blob/HEAD/CONTRIBUTING.md" rel="nofollow noindex noopener external ugc">here</a> for more information.</p>
+<h2><a id="user-content-more-help" class="anchor" href="#user-content-more-help" rel="nofollow noindex noopener external ugc"></a>More help</h2>
+<ul>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/wiki/Going-Live" rel="nofollow noindex noopener external ugc">Going Live</a></li>
+<li><a href="http://paypal.github.io/PayPal-PHP-SDK/" rel="nofollow noindex noopener external ugc">PayPal-PHP-SDK Home Page</a></li>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/wiki" rel="nofollow noindex noopener external ugc">SDK Documentation</a></li>
+<li><a href="http://paypal.github.io/PayPal-PHP-SDK/sample/" rel="nofollow noindex noopener external ugc">Sample Source Code</a></li>
+<li><a href="https://developer.paypal.com/docs/api/" rel="nofollow noindex noopener external ugc">API Reference</a></li>
+<li><a href="https://github.com/paypal/PayPal-PHP-SDK/issues" rel="nofollow noindex noopener external ugc">Reporting Issues / Feature Requests</a></li>
+</ul>
+
+                </div>
+                    </div>
+    </div>
+            </section>
+        </section>
+    </section>
+
+        <footer class="wrapper-footer">
+            <nav class="container">
+                <div class="row">
+                    <ul class="social col-xs-7 col-sm-4 col-md-2 pull-right">
+                        <li><a href="http://github.com/composer/packagist" title="GitHub"><span class="icon-github"></span></a></li>
+                        <li><a href="https://twitter.com/packagist" title="Follow @packagist"><span class="icon-twitter"></span></a></li>
+                        <li><a href="mailto:contact@packagist.org" title="Contact"><span class="icon-mail"></span></a></li>
+                    </ul>
+
+                    <ul class="col-xs-4 col-md-2">
+                        <li><a href="/about">About Packagist</a></li>
+                        <li><a href="/feeds/" rel="nofollow">Atom/RSS Feeds</a></li>
+                    </ul>
+
+                    <div class="clearfix visible-xs-block"></div>
+
+                    <ul class="col-xs-3 col-md-2">
+                        <li><a href="/statistics" rel="nofollow">Statistics</a></li>
+                        <li><a href="/explore/">Browse Packages</a></li>
+                    </ul>
+
+                    <div class="clearfix visible-xs-block"></div>
+
+                    <ul class="col-xs-3 col-md-2">
+                        <li><a href="/apidoc">API</a></li>
+                        <li><a href="/mirrors">Mirrors</a></li>
+                    </ul>
+
+                    <div class="clearfix visible-xs-block"></div>
+
+                    <ul class="col-xs-3 col-md-2">
+                        <li><a href="https://status.packagist.org/">Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <p class="toran col-xs-12">Packagist maintenance and hosting is provided by <a href="https://packagist.com/">Private Packagist</a></p>
+                </div>
+            </nav>
+        </footer>
+
+        <script>
+            var algoliaConfig = {"app_id":"M58222SH95","search_key":"5ae4d03c98685bd7364c2e0fd819af05","index_name":"packagist"};
+                    </script>
+
+        <script src="/libs/humane-3.2.2.min.js?v=1638278346"></script>
+        <script src="/build/app.js?v=1638278346"></script>
+        <script src="/libs/bootstrap-3.3.5/js/bootstrap.min.js?v=1638278346"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4/dist/instantsearch.min.js"></script>
+        <script src="/js/search.js?v=1638278346"></script>
+
+            <script src="/js/view.js?v=1638278346"></script>
+    </body>
+</html>
